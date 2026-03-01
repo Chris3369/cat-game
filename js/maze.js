@@ -158,11 +158,7 @@ const MazeEngine = {
           ctx.fillText('OUT', x + CELL_SIZE / 2, y + CELL_SIZE / 2);
         }
 
-        // 玳瑁貓
-        if (cell.hasCat && !cell.catInteracted) {
-          const pad = 4;
-          ctx.drawImage(CAT_IMAGE, x + pad, y + pad, CELL_SIZE - pad * 2, CELL_SIZE - pad * 2);
-        }
+        // 玳瑁貓（隱形，不顯示在畫面上）
       }
     }
 

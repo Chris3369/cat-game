@@ -32,14 +32,14 @@ const DialogSystem = {
   showTortoiseshellCat(cell) {
     this._catEl.innerHTML = '<img src="assets/mix.png" style="width:80px;height:80px;object-fit:contain;">';
     this._catEl.style.background = 'none';
-    this._msgEl.textContent = '喵～你好！\n我是玳瑁貓。\n要給我 3 點乾乾嗎？';
+    this._msgEl.textContent = '喵～你好！\n我是玳瑁貓。\n要給我 4 點乾乾嗎？';
 
-    const giveBtn   = this._makeButton('給予 3 乾乾', 'btn-give');
+    const giveBtn   = this._makeButton('給予 4 乾乾', 'btn-give');
     const refuseBtn = this._makeButton('拒絕', 'btn-refuse');
 
     giveBtn.onclick = () => {
-      if (GameState.mp >= 3) {
-        GameState.setMp(GameState.mp - 3);
+      if (GameState.mp >= 4) {
+        GameState.setMp(GameState.mp - 4);
         this._showCatReaction('💕', '喵～謝謝你！\n（愛心）', 'cat-love');
       } else {
         // 乾乾不足，視為拒絕
@@ -63,10 +63,10 @@ const DialogSystem = {
   },
 
   _doRefuse(cell) {
-    this._showCatReaction('😾', '貓咪生氣了！\nHP -2', 'cat-angry');
+    this._showCatReaction('😾', '貓咪生氣了！\nHP -1', 'cat-angry');
     cell.catInteracted = true;
     MazeEngine.rerenderCell(cell.row, cell.col);
-    GameState.setHp(GameState.hp - 2);
+    GameState.setHp(GameState.hp - 1);
     setTimeout(() => {
       if (GameState.dialogOpen) this._close();
     }, 900);
