@@ -1,7 +1,7 @@
 // gameState.js — 全域遊戲狀態管理
 
 const GameState = {
-  hp: 5,
+  hp: 3,
   mp: 10,
   maxMp: 10,
   level: 1,
@@ -32,7 +32,7 @@ const GameState = {
 
   _updateHpDisplay() {
     const full  = '♥'.repeat(this.hp);
-    const empty = '♡'.repeat(Math.max(0, 5 - this.hp));
+    const empty = '♡'.repeat(Math.max(0, 3 - this.hp));
     document.getElementById('hp-display').textContent = 'HP: ' + full + empty;
   },
 
@@ -73,7 +73,7 @@ const GameState = {
     this.level++;
     this.mazeRows = 13 + (this.level - 1) * 3;
     this.mazeCols = 13 + (this.level - 1) * 3;
-    this.hp = 5;
+    this.hp = 3;
     this.mp = 10;
     this.deadEndVisited = new Set();
     this.playerRow = 0;
@@ -96,7 +96,7 @@ const GameState = {
     this.level = 1;
     this.mazeRows = 13;
     this.mazeCols = 13;
-    this.hp = 5;
+    this.hp = 3;
     this.mp = 10;
     this.deadEndVisited = new Set();
     this.playerRow = 0;
