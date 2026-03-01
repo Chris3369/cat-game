@@ -1,0 +1,214 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #2c2c2c;
+  color: #f0e8d0;
+  font-family: 'Segoe UI', '微軟正黑體', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 16px;
+}
+
+/* ── 狀態列 ── */
+#status-bar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: #3a3020;
+  border: 2px solid #8b6914;
+  border-radius: 8px;
+  padding: 8px 24px;
+  margin-bottom: 16px;
+  font-size: 18px;
+  width: 100%;
+  max-width: 800px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#level-display {
+  font-weight: bold;
+  color: #ffd966;
+}
+
+#hp-display {
+  color: #ff6b6b;
+  letter-spacing: 2px;
+  font-size: 20px;
+}
+
+#mp-display {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #70d4ff;
+}
+
+#mp-bar-wrap {
+  display: inline-block;
+  width: 80px;
+  height: 12px;
+  background: #444;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #666;
+}
+
+#mp-bar {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #4fc3f7, #0288d1);
+  border-radius: 6px;
+  transition: width 0.4s ease;
+}
+
+#mp-number {
+  font-size: 14px;
+  color: #a0d8ef;
+}
+
+/* ── 迷宮容器 ── */
+#maze-container {
+  position: relative;
+  display: inline-block;
+}
+
+#maze-canvas {
+  background: #f5f0e8;
+  border: 3px solid #8b6914;
+  border-radius: 4px;
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.5);
+  display: block;
+}
+
+/* ── 玩家 ── */
+#player {
+  position: absolute;
+  font-size: 28px;
+  line-height: 1;
+  transition: top 0.1s ease, left 0.1s ease;
+  pointer-events: none;
+  user-select: none;
+  z-index: 10;
+}
+
+/* ── 對話框 ── */
+#dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+#dialog-overlay.hidden {
+  display: none;
+}
+
+#dialog-box {
+  background: #faf4e1;
+  border: 3px solid #8b6914;
+  border-radius: 16px;
+  padding: 32px 40px;
+  text-align: center;
+  max-width: 360px;
+  width: 90%;
+  color: #3a2a0a;
+  animation: dialogFadeIn 0.2s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+#dialog-cat {
+  font-size: 72px;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+}
+
+#dialog-message {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  white-space: pre-line;
+}
+
+#dialog-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#dialog-buttons button {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+#dialog-buttons button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#dialog-buttons button:active {
+  transform: translateY(0);
+}
+
+.btn-give {
+  background: #4fc3f7;
+  color: #003a5c;
+}
+
+.btn-refuse {
+  background: #e57373;
+  color: #5a0000;
+}
+
+.btn-continue {
+  background: #81c784;
+  color: #003300;
+}
+
+.btn-restart {
+  background: #ffd54f;
+  color: #4a3000;
+}
+
+/* ── 動畫 ── */
+@keyframes dialogFadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-6px); }
+  40%       { transform: translateX(6px); }
+  60%       { transform: translateX(-4px); }
+  80%       { transform: translateX(4px); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.4); }
+}
+
+.cat-angry {
+  animation: shake 0.5s ease;
+}
+
+.cat-love {
+  animation: heartbeat 0.5s ease infinite;
+}

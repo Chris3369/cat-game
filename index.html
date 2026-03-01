@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>迷宮遊戲</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 狀態列 -->
+  <div id="status-bar">
+    <span id="level-display">關卡 1</span>
+    <span id="hp-display">HP: ♥♥♥♥♥</span>
+    <span id="mp-display">
+      乾乾:
+      <span id="mp-bar-wrap"><span id="mp-bar"></span></span>
+      <span id="mp-number">10/10</span>
+    </span>
+  </div>
+
+  <!-- 迷宮區域 -->
+  <div id="maze-container">
+    <canvas id="maze-canvas"></canvas>
+    <div id="player">📄</div>
+  </div>
+
+  <!-- 對話框 overlay -->
+  <div id="dialog-overlay" class="hidden">
+    <div id="dialog-box">
+      <div id="dialog-cat"></div>
+      <div id="dialog-message"></div>
+      <div id="dialog-buttons"></div>
+    </div>
+  </div>
+
+  <script src="js/gameState.js"></script>
+  <script src="js/maze.js"></script>
+  <script src="js/dialog.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
