@@ -24,6 +24,18 @@
     <div id="player">📄</div>
   </div>
 
+  <!-- 方向按鈕 -->
+  <div id="dpad">
+    <div id="dpad-row">
+      <button id="btn-up" onclick="Player.move('top')">▲</button>
+    </div>
+    <div id="dpad-row">
+      <button id="btn-left" onclick="Player.move('left')">◀</button>
+      <button id="btn-down" onclick="Player.move('bottom')">▼</button>
+      <button id="btn-right" onclick="Player.move('right')">▶</button>
+    </div>
+  </div>
+
   <!-- 對話框 overlay -->
   <div id="dialog-overlay" class="hidden">
     <div id="dialog-box">
